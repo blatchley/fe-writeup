@@ -169,7 +169,7 @@ Luckily, the ECB decryption oracle can be used to create a CBC encryption oracle
 
 Imagine we want to encrypt the message `pt = b'ABCDABCDABCDABCD'` in the last block. First we "decrypt" some arbitrary ciphertext, for example 16 null bytes, `\x00*16`. Once we have the decryption `d = dec(\x00*16)`, of this, we can just make the block of the ciphertext before it be `XOR(d,pt)`. Now during decryption, the server will decrypt `\x00*16` to `d`, then xor the previous ciphertext on, leaving us with `pt`.
 
-Now we have the issue of the penultimate block being some random uncontrolled series of bytes. However we can just decrypt this again using the oracle, get the decryption of this random sequence of bytes, then set the block before that to be the thing that XOR's the decryption of the to the penultimate block of the target ciphertext.
+Now we have the issue of the penultimate block being some random uncontrolled series of bytes. However we can just decrypt this again using the oracle, get the decryption of this random sequence of bytes, then set the block before that to be the thing that XOR's the decryption of the to the penultimate block of the target payload.
 
 We can just keep doing this all the way backwards, building up our ciphertext by finding what we need to xor into each blocks plaintext to make it right, until we have the whole plaintext formed, and then we make the IV the thing needed to make the first block decrypt correctly and we're done!
 
