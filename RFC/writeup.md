@@ -67,7 +67,7 @@ EOF
 
 This file is being run at `http://bibliobibuli.ctf/rfcs/x.php`, so post requests to that url trigger this code.
 
-This includes an RSA public key, (presumably the "intended" way of authenticating to this backdoor as a user,) as well as two AES keys.
+This includes an RSA public key, (presumably the "intended" way of authenticating to this backdoor as a user,) as well as two AES keys. The AES keys are encrypted using the RSA public key and stored in your cookie, so as long as you keep the same cookie, the same keys will be used.
 
 When you send a payload to this server, this section of the code is relevant. 
 
